@@ -1,4 +1,5 @@
 const Users = require('../users/users-model');
+const secrets = require('./secrets');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
