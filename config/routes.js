@@ -35,6 +35,19 @@ function login(req, res) {
   // implement user login
 }
 
+function generateToken(user) {
+  const payload = {
+    subject: user.id,
+    username: user.username,
+  }
+
+  const options = {
+    expiresIn: '8h',
+  }
+
+  return jwt.sign(payload, secrets.jwtSecret, options)
+}
+
 function getJokes(req, res) {
   const requestOptions = {
     headers: { accept: 'application/json' },
